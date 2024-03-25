@@ -14,4 +14,4 @@ POST /users = Create new users
 
 PATCH /users/1 = Edit the users with id 1 
 
-DELETE /users/1 = DELETE the users with id 1
+DELETE /users/1 = DELETE the users with id 1 - DONE
