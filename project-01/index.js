@@ -34,6 +34,38 @@ app.post("/api/users",(req,res) =>{
     })
 })
 
+// edit the data
+app.patch("/api/users",(req,res) =>{
+
+})
+
+
+app.delete("/api/users/delete/:id", (req, res) => {
+    const id = Number(req.params.id);
+    console.log('ID:', id);
+    const index = data.findIndex((user) => user.id === id);
+    console.log('Index:', index);
+
+    if (index !== -1) {
+        data.splice(index, 1); 
+        fs.writeFile('./MOCK_DATA.json', JSON.stringify(data), (err) => {
+            if (err) {
+                console.error(err);
+                return res.status(500).json({ status: "error", message: "Failed to update data" });
+            }
+            console.log('User deleted:', id);
+            return res.json({ status: "success", message: "User deleted successfully" });
+        });
+    } else {
+        console.log('User not found:', id);
+        return res.status(404).json({ status: "error", message: "User not found" });
+    }
+});
+
+
+
+
+
 
 
 
