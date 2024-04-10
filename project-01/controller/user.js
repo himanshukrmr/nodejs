@@ -57,7 +57,7 @@ async function handlePatchUserByID(req, res) {
 
 async function handleDeleteUserByID(req, res) {
   await User.findByIdAndDelete(req.params.id);
-  return res.json({ msg: "Sucess" });
+  return res.json({ msg: "Success" });
 }
 
 module.exports = {
